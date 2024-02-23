@@ -10,7 +10,14 @@ class Group {
   constructor() {
     this.list = [];
   }
-
+  
+  static from(array) {
+    let group = new Group;
+    for (let item of array) {
+      group.add(item);
+    }
+    return group;
+  }
 
   add(value) {
     if (!this.has(value)) {
@@ -24,14 +31,6 @@ class Group {
 
   has(value) {
     return this.list.includes(value);
-  }
-
-  static from(array) {
-    let group = new Group;
-    for (let item of array) {
-      group.add(item);
-    }
-    return group;
   }
 
 }
